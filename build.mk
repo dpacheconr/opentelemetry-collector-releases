@@ -1,7 +1,7 @@
 GO ?= go
 GORELEASER ?= goreleaser
 
-OTELCOL_BUILDER_VERSION ?= 0.101.0
+OTELCOL_BUILDER_VERSION ?= 0.106.1
 OTELCOL_BUILDER_DIR ?= ${HOME}/bin
 OTELCOL_BUILDER ?= ${OTELCOL_BUILDER_DIR}/ocb
 
@@ -18,7 +18,7 @@ generate-sources: go ocb
 	@./scripts/build.sh -d "${DISTRIBUTIONS}" -s true -b ${OTELCOL_BUILDER} -g ${GO}
 
 goreleaser-verify: goreleaser
-	@${GORELEASER} release --snapshot --rm-dist
+	@${GORELEASER} release --snapshot --clean
 
 .PHONY: ocb
 ocb:
